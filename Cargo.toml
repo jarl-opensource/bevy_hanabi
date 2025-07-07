@@ -36,6 +36,8 @@ anyhow = "1.0"
 ron = "0.8"
 bitflags = "2.3"
 typetag = "0.2"
+strum = { version = "0.27", default-features = false, features = ["derive"] }
+strum_macros = { version = "0.27", default-features = false }
 
 [dependencies.bevy]
 version = "0.11"

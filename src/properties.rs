@@ -17,8 +17,8 @@ use crate::{graph::Value, next_multiple_of, ToWgslString, ValueType};
 /// dynamically at runtime, or changes very infrequently.
 #[derive(Debug, Clone, PartialEq, Reflect, Serialize, Deserialize)]
 pub struct Property {
-    name: String,
-    default_value: Value,
+    pub name: String,
+    pub default_value: Value,
 }
 
 impl Property {

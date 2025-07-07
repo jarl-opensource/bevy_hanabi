@@ -100,6 +100,13 @@ impl<T: Copy + FromReflect + SampleUniform> CpuValue<T> {
             Self::Uniform((a, b)) => Uniform::new_inclusive(*a, *b).sample(rng),
         }
     }
+
+    pub fn single(&self) -> T {
+        match self {
+            Self::Single(x) => *x,
+            _ => panic!("CpuValue::single() called on a non-single value"),
+        }
+    }
 }
 
 impl<T: Copy + FromReflect + PartialOrd> CpuValue<T> {
@@ -158,26 +165,26 @@ pub struct Spawner {
     /// Number of particles to spawn over [`spawn_time`].
     ///
     /// [`spawn_time`]: Spawner::spawn_time
-    num_particles: CpuValue<f32>,
+    pub num_particles: CpuValue<f32>,
 
     /// Time over which to spawn `num_particles`, in seconds.
-    spawn_time: CpuValue<f32>,
+    pub spawn_time: CpuValue<f32>,
 
     /// Time between bursts of the particle system, in seconds.
     /// If this is infinity, there's only one burst.
     /// If this is `spawn_time`, the system spawns a steady stream of particles.
-    period: CpuValue<f32>,
+    pub period: CpuValue<f32>,
 
     /// Whether the system is active at startup. The value is used to initialize
     /// [`EffectSpawner::active`].
     ///
     /// [`EffectSpawner::active`]: crate::EffectSpawner::active
-    starts_active: bool,
+    pub starts_active: bool,
 
     /// Whether the burst of a once-style spawner triggers immediately when the
     /// spawner becomes active. If `false`, the spawner doesn't do anything
     /// until [`EffectSpawner::reset()`] is called.
-    starts_immediately: bool,
+    pub starts_immediately: bool,
 }
 
 impl Default for Spawner {

@@ -159,7 +159,7 @@ impl ExprHandle {
 /// [`attr()`]: Module::attr
 #[derive(Debug, Default, Clone, PartialEq, Hash, Reflect, Serialize, Deserialize)]
 pub struct Module {
-    expressions: Vec<Expr>,
+    pub expressions: Vec<Expr>,
 }
 
 impl Module {
@@ -618,7 +618,7 @@ impl Expr {
 /// [`is_const()`]: LiteralExpr::is_const
 #[derive(Debug, Clone, Copy, PartialEq, Hash, Reflect, Serialize, Deserialize)]
 pub struct LiteralExpr {
-    value: Value,
+    pub value: Value,
 }
 
 impl LiteralExpr {
@@ -672,7 +672,7 @@ impl<T: Into<Value>> From<T> for LiteralExpr {
 /// Expression representing the value of an attribute of a particle.
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Reflect, Serialize, Deserialize)]
 pub struct AttributeExpr {
-    attr: Attribute,
+    pub attr: Attribute,
 }
 
 impl AttributeExpr {
@@ -714,7 +714,7 @@ impl From<Attribute> for AttributeExpr {
 /// Expression representing the value of a property of an effect.
 #[derive(Debug, Clone, PartialEq, Eq, Hash, Reflect, Serialize, Deserialize)]
 pub struct PropertyExpr {
-    property_name: String,
+    pub property_name: String,
 }
 
 impl PropertyExpr {
@@ -843,7 +843,7 @@ impl ToWgslString for BuiltInOperator {
 /// Expression for getting built-in quantities related to the effect system.
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Reflect, Serialize, Deserialize)]
 pub struct BuiltInExpr {
-    operator: BuiltInOperator,
+    pub operator: BuiltInOperator,
 }
 
 impl BuiltInExpr {

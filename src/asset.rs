@@ -37,7 +37,7 @@ pub enum MotionIntegration {
 }
 
 /// Simulation condition for an effect.
-#[derive(Debug, Default, Clone, Copy, PartialEq, Eq, Hash, Reflect, Serialize, Deserialize)]
+#[derive(Debug, Default, Clone, Copy, PartialEq, Eq, Hash, Reflect, Serialize, Deserialize, strum::EnumString, strum::EnumIter, strum::Display)]
 pub enum SimulationCondition {
     /// Simulate the effect only when visible.
     ///
@@ -100,7 +100,7 @@ pub struct EffectAsset {
     /// the particle buffer itself. To prevent wasting GPU resources, users
     /// should keep this quantity as close as possible to the maximum number of
     /// particles they expect to render.
-    capacity: u32,
+    pub capacity: u32,
     /// Spawner.
     pub spawner: Spawner,
     /// For 2D rendering, the Z coordinate used as the sort key.
@@ -119,15 +119,15 @@ pub struct EffectAsset {
     /// Init modifier defining the effect.
     #[reflect(ignore)]
     // TODO - Can't manage to implement FromReflect for BoxedModifier in a nice way yet
-    init_modifiers: Vec<BoxedModifier>,
+    pub init_modifiers: Vec<BoxedModifier>,
     /// update modifiers defining the effect.
     #[reflect(ignore)]
     // TODO - Can't manage to implement FromReflect for BoxedModifier in a nice way yet
-    update_modifiers: Vec<BoxedModifier>,
+    pub update_modifiers: Vec<BoxedModifier>,
     /// Render modifiers defining the effect.
     #[reflect(ignore)]
     // TODO - Can't manage to implement FromReflect for BoxedModifier in a nice way yet
-    render_modifiers: Vec<BoxedModifier>,
+    pub render_modifiers: Vec<BoxedModifier>,
     /// Properties of the effect.
     ///
     /// Properties must have a unique name. Manually adding two or more
@@ -137,11 +137,11 @@ pub struct EffectAsset {
     ///
     /// [`with_property()`]: crate::EffectAsset::with_property
     /// [`add_property()`]: crate::EffectAsset::add_property
-    properties: Vec<Property>,
+    pub properties: Vec<Property>,
     /// Type of motion integration applied to the particles of a system.
     pub motion_integration: MotionIntegration,
     /// Expression module for this effect.
-    module: Module,
+    pub module: Module,
 }
 
 impl EffectAsset {

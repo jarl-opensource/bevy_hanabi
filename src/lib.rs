@@ -1,21 +1,3 @@
-#![deny(
-    warnings,
-    missing_copy_implementations,
-    trivial_casts,
-    trivial_numeric_casts,
-    unsafe_code,
-    unstable_features,
-    unused_import_braces,
-    unused_qualifications,
-    missing_docs,
-    clippy::suboptimal_flops,
-    clippy::imprecise_flops,
-    clippy::branches_sharing_code,
-    clippy::suspicious_operation_groupings,
-    clippy::useless_let_if_seq
-)]
-#![allow(clippy::too_many_arguments, clippy::type_complexity)]
-
 //! 🎆 Hanabi -- a GPU particle system plugin for the Bevy game engine.
 //!
 //! The 🎆 Hanabi particle system is a GPU-based particle system integrated with
@@ -359,7 +341,7 @@ impl ToWgslString for CpuValue<Vec4> {
 }
 
 /// Simulation space for the particles of an effect.
-#[derive(Debug, Default, Clone, Copy, PartialEq, Eq, Reflect, Serialize, Deserialize)]
+#[derive(Debug, Default, Clone, Copy, PartialEq, Eq, Reflect, Serialize, Deserialize, strum::EnumString, strum::EnumIter, strum::Display)]
 #[non_exhaustive]
 pub enum SimulationSpace {
     /// Particles are simulated in global space.

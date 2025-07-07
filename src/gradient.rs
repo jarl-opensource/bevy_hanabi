@@ -62,7 +62,7 @@ impl Lerp for Quat {
 #[derive(Debug, Default, Clone, Copy, PartialEq, Reflect, Serialize, Deserialize)]
 pub struct GradientKey<T: Lerp + FromReflect> {
     /// Ratio in \[0:1\] where the key is located.
-    ratio: f32,
+    pub ratio: f32,
 
     /// Value associated with the key.
     ///

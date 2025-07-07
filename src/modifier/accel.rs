@@ -37,7 +37,7 @@ pub struct AccelModifier {
     /// The acceleration to apply to all particles in the effect each frame.
     ///
     /// Expression type: `Vec3`
-    accel: ExprHandle,
+    pub accel: ExprHandle,
 }
 
 impl AccelModifier {
@@ -121,11 +121,11 @@ pub struct RadialAccelModifier {
     /// The center point the radial direction is calculated from.
     ///
     /// Expression type: `Vec3`
-    origin: ExprHandle,
+    pub origin: ExprHandle,
     /// The acceleration to apply to all particles in the effect each frame.
     ///
     /// Expression type: `f32`
-    accel: ExprHandle,
+    pub accel: ExprHandle,
 }
 
 impl RadialAccelModifier {
@@ -214,15 +214,15 @@ pub struct TangentAccelModifier {
     /// The center point the tangent direction is calculated from.
     ///
     /// Expression type: `Vec3`
-    origin: ExprHandle,
+    pub origin: ExprHandle,
     /// The axis defining the rotation plane and orientation.
     ///
     /// Expression type: `Vec3`
-    axis: ExprHandle,
+    pub axis: ExprHandle,
     /// The acceleration to apply to all particles in the effect each frame.
     ///
     /// Expression type: `f32`
-    accel: ExprHandle,
+    pub accel: ExprHandle,
 }
 
 impl TangentAccelModifier {
